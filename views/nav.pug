@@ -1,0 +1,20 @@
+li
+  a(href='/') Home
+if loggedIn
+  li
+    a(href='/addrecipe') Add recipe
+  li
+    a(href='/list') List
+  li
+    a(href='/search') Search
+  li
+    a(href='/myrecipes') My Recipes
+  li
+    a(href='/logout') Logout
+else
+  li
+    a(href='/login') Login
+  li
+    a(href='/register') Register
+li
+  a(href='/api') API

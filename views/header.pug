@@ -1,0 +1,11 @@
+head
+  title= title
+  link(rel='stylesheet', href='/css/style.css')
+body
+  nav#main-nav.navbar
+    div.outer
+      a.logo.col.col-2
+       | Recipes
+      a.collapse.vm-1(href='#') =
+      ul.nav.col.col-10.vm-1
+        include nav.pug

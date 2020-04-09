@@ -1,0 +1,29 @@
+{
+  "name": "recipebook",
+  "version": "1.0.0",
+  "description": "Recipe Book",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "recipes"
+  ],
+  "author": "mpeev001",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6",
+    "express-sanitizer": "^1.0.5",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.4.0",
+    "mongo": "^0.1.0",
+    "node-nonce": "^1.0.1",
+    "node-sass": "^4.13.1",
+    "pug": "^2.0.4",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {}
+}

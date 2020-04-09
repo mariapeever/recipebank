@@ -1,0 +1,12 @@
+html
+  include header.pug
+  header
+    div.outer
+      div.col.col-12.vt-4.center
+        if message
+          h3.notify= message
+        if errors
+          each error in errors
+            p.notify= error.msg
+  main
+  include footer.pug

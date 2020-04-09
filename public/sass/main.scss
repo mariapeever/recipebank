@@ -1,0 +1,348 @@
+/** 
+ * SCSS Main Styles
+ * Recipe Bank
+ * Author: mpeev001
+ */
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Pacifico|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic,cyrillic-ext,latin-ext,vietnamese');
+$pacifico: 'Pacifico', serif;
+$poppins: 'Poppins', serif;
+$lato: 'Lato', sans-serif;
+
+// color scheme
+$dark-color: hsl(175, 27%, 50%);
+$dark-color-2: hsl(182, 100%, 19%);
+$light-color: hsl(22, 14%, 22%);
+$white: hsl(0, 0%, 100%);
+$highlight: hsl(17, 94%, 72%);
+$dark-bg-1: hsl(22, 96%, 71%);
+$dark-bg-2: hsl(24, 95%, 81%);
+$light-bg-1: hsl(32, 45%, 97%);
+$link-color: hsl(182, 100%, 19%);
+$base-fs: 1;
+$base-lh: 2;
+@mixin line-height($font-size, $line-height) {
+  $line-height: ($line-height / $font-size) * 1em;
+  @while($line-height < 1) {
+    $line-height: $line-height * 2;
+  }
+  line-height: $line-height;
+}
+@mixin font($size, $line-height) {
+  font-size: $size * 1em;
+  @include line-height($size, $line-height);
+}
+@mixin padding($font-size: 1) {
+  @if not $font-size {
+    $font-size: $base-fs;
+  }
+  $padding: (1.5/$font-size) * 1em;
+  padding-left: $padding;
+  padding-right: $padding;
+}
+@mixin poppins() {
+  font-family: $poppins;
+  font-weight: 300;
+}
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  @include font($base-fs, $base-lh);
+  color: $light-color;
+  font-family: $lato;
+  font-weight: 300;
+  font-style: normal;
+  padding-top: 4rem;
+}
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+dl {
+  dd {
+    margin: 0;
+  }
+}
+input {
+  @include font(1, $base-lh);
+}
+a {
+  text-decoration: none;
+  color: $link-color;
+  &:hover,
+  &:focus {
+    color: darken($link-color, 10%);
+  }
+}
+p {
+  @include font(1.125, $base-lh);
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: $dark-color-2;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: -1px;
+}
+h1 {
+  @include font(3.5, $base-lh);
+  margin: 2rem 0;
+}
+h2 {
+  @include font(3, $base-lh);
+  margin: 2rem 0;
+}
+h3 {
+  @include font(1.5, $base-lh);
+  margin: 1rem 0;
+}
+h4 {
+  @include font(1.125, $base-lh);
+}
+h5 {
+  @include font(1, $base-lh);
+}
+h6 {
+  @include font(0.875, $base-lh);
+}
+.notify {
+  color: $light-color;
+}
+.collapse {
+  display: none;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  background-color: $white;
+  @include box-shadow(0 0.25rem 0.125rem 0 rgba(0,0,0,0.05));
+  .logo {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-top: 3px;
+    font-family: $pacifico;
+    font-style: normal;
+    color: $dark-bg-2;
+    letter-spacing: -1px;
+  }
+  .nav {
+    list-style: none;
+    li {
+      float: left;
+    }
+    a {
+      @include font(1, $base-lh);
+      color: $dark-color-2;
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+      @include poppins();
+      &:hover,
+      &:focus {
+        color: $dark-color;
+      }
+    }
+  }
+}
+@media (max-width: $xs-max) {
+  .hide {
+    display: none;
+  }
+  .nav {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    li {
+      width: 100%;
+    }
+    &.col {
+      width: 100%!important;
+    }
+  }
+}
+main {
+  min-height: calc(100% - 24rem);
+  padding: 2rem 0;
+}
+.btn {
+  padding: calc(0.25em - 2px) calc(1.5em - 2px);
+  margin-bottom: 0.5em;
+  display: inline-block;
+  border: 2px solid transparent;
+  font-family: $poppins;
+  transition: .4s ease;
+  border-radius: 0.25em;
+  +.btn {
+    margin-left: 0.5em;
+  }
+  &-main {
+    background-color: $highlight;
+    color: $white;
+    &:hover,
+    &:focus {
+      color: $white;
+      background-color: darken($highlight, 10%);
+    }
+  }
+  &-secondary {
+    color: $dark-color;
+    background-color: transparent;
+    border-color: $dark-color;
+    &:hover,
+    &:focus {
+      color: $white;
+      background-color: $dark-color;
+    }
+  }
+}
+.page-title {
+  padding: 2rem 0;
+  background-color: $light-bg-1;
+}
+.item {
+  &-image {
+    text-align: center;
+    width: 100%;
+    border-radius: 4px;
+  }
+  &-title {
+    span {
+      margin-left: 0.5rem;
+      font-size: 1rem;
+      line-height: 2rem;
+      color: $dark-color;
+    }
+  }
+}
+.list-inline {
+  list-style: none;
+}
+.list-inline li {
+  display: block;
+  float: left;
+}
+.features li {
+  padding: 0 1.5rem;
+  border-right: 1px solid lighten($dark-bg-2, 10%);
+  span {
+    @include font(1.5, $base-lh);
+    color: $highlight;
+    display: block;
+    &.plainVal {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+  }
+  &:last-child {
+    border: 0;
+  }
+}
+.ingredients {
+  list-style: circle;
+}
+.label,
+.field {
+  display: block;
+}
+.label {
+  width: fit-content;
+}
+fieldset {
+  border: 1px dashed $light-color;
+}
+.field {
+  width: 100%;
+  padding: calc(0.25rem - 1px) 0.75rem;
+  margin-bottom: 0.5rem;
+  @include font(1, $base-lh);
+  border-radius: 0.25rem;
+  border: 1px solid $light-color;
+  &::placeholder {
+    color: $light-color;
+  }
+}
+.file {
+  position: relative;
+  width: fit-content;
+  .label {
+    color: $dark-color;
+  }
+  .field {
+    opacity: 0;
+    position: absolute;
+    top: 0.33333333rem;
+    width: 100%;
+    cursor: pointer;
+    height: 37px;
+  }
+}
+.field-group {
+  margin-bottom: 0.5rem;
+  p {
+    @include font(1, $base-lh);
+    &.error {
+      color: hsl(0, 74%, 64%);
+    }
+  }
+}
+.input-group {
+  .field:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+  .btn:not(first-child):last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+.weather {
+  dt {
+    h3 {
+      color: $light-color;
+    }
+  }
+  dd {
+    h3 {
+      color: $highlight;
+    }
+  }
+}
+
+.original-text {
+  text-transform: none!important;
+}
+
+footer {
+  background-color: $light-bg-1;
+  .navbar {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    @include box-shadow(none);
+    .nav {
+      padding-left: 0!important;
+      a {
+        color: $light-color;
+        @include padding();
+        &:hover,
+        &:focus {
+          color: lighten($light-color, 30%);
+        }
+      }
+    }
+  }
+}

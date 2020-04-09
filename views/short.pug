@@ -1,0 +1,25 @@
+div.outer.vm-2
+  div.col.col-3
+    img.item-image(src= images + recipe.img)
+  div.col.col-9
+    header
+      h3.item-title= recipe.name
+        span= recipe.author[0].name
+    section#info
+      div.outer
+        ul.features.list-inline.col.col-10
+          li.col-4= ingredientsLabel
+            span= recipe.ingredients.length + ' ' + ingredientsLabel
+          li.col-4= timeLabel
+            - var timeArr = recipe.time.split(':')
+            span= parseInt(timeArr[0]) * 60 + parseInt(timeArr[1]) + ' ' + timeUnit
+          li.col-4= caloriesLabel
+            span= recipe.calories + ' ' + caloriesUnit
+    section#links
+      div.outer
+        div.col.col-12.vm-2
+          if recipe.author[0].name == user
+            a.btn.btn-secondary(href=updateRecipe + recipe.slug, title=updateLabel)= updateLabel
+            a.btn.btn-secondary(href=deleteRecipe + recipe.slug, title=deleteLabel)= deleteLabel
+          if viewRecipe
+            a.btn.btn-main(href=viewRecipe + recipe.slug, title=viewLabel)= viewLabel

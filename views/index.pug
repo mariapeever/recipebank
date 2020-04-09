@@ -1,0 +1,22 @@
+html
+  include header.pug
+  header.page-title
+    div.outer
+      div.col.col-12.vt-2.vb-1.center
+        h1= header
+        p= featured
+    div.outer
+      if loggedIn
+        div.col.col-6.push-3
+          form#search.vb-2.outer(method='GET', action='/search-results')
+            div.input-group
+              input#search.field.col.col-9(type='text', name='keyword', placeholder=searchPlaceholder, required)
+              input#submit.btn.btn-main.col.col-3(type='submit', value=submit)
+      else
+        div.col.col-12.center
+          a.btn.btn-main(href='./register')= register
+          a.btn.btn-secondary(href='./login')= login
+    div.outer
+      div.col.col-10.center.push-1
+        ul.tags.outer
+  include footer.pug

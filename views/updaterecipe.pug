@@ -1,0 +1,78 @@
+html
+  include header.pug
+  header.page-title
+    div.outer
+      div.col.col-8
+        h1= header
+  main
+    div.outer
+      div.col.col-8
+        p= message
+        if result
+          form#add-recipe(ref='uploadForm', method='POST', action='/recipeupdated/' + result.slug, enctype='multipart/form-data')
+            div.field-group
+              label.label(for='name')= name
+                sup *
+              input#name.field(type='text', name='name', placeholder=namePlaceholder, value=result.name, required)
+              p= nameHelp
+            div.field-group
+              label.label(for='description')= description
+                sup *
+              textarea#description.field(name='description', placeholder=descriptionPlaceholder, required)= result.description
+              p= descriptionHelp
+            div.field-group
+              label.label(for='time')= time
+                sup *
+              input#time.field(type='time', name='time', placeholder=timePlaceholder, value=result.time, required)
+            div.field-group
+              label.label(for='calories')= calories
+              input#calories.field(type='number', min=0, name='calories', value=result.calories, placeholder=caloriesPlaceholder)
+            div.field-group
+              label.label(for='sodium')= sodium
+              input#sodium.field(type='number', min=0, name='sodium', placeholder=sodiumPlaceholder, value=result.sodium)
+              p= sodiumHelp
+            div.field-group
+              label.label(for='fat')= fat
+              input#fat.field(type='number', min=0, name='fat', placeholder=fatPlaceholder, value=result.fat)
+              p= fatHelp
+            div.field-group
+              label.label(for='protein')= protein
+              input#protein.field(type='number', min=0, name='protein', placeholder=proteinPlaceholder, value=result.protein)
+              p= proteinHelp
+            div.field-group
+              label.label(for='carbs')= carbs
+              input#carbs.field(type='number', min=0, name='carbs', placeholder=carbsPlaceholder, value=result.carbs)
+              p= carbsHelp
+            div.field-group
+              label.label(for='fiber')= fiber
+              input#fiber.field(type='number', min=0, name='fiber', placeholder=fiberPlaceholder, value=result.fiber)
+              p= fiberHelp
+            fieldset#ingredients.field-group
+              legend.label(for='ingredient-0')= ingredients
+                sup *
+              - var ingredientName;
+              each ingredient, index in result.ingredients
+                - ingredientName= 'ingredient-' + index
+                input.field(id=ingredientName, type='text', name=ingredientName, placeholder=ingredientPlaceholder, value=ingredient, required)
+            input#add-ingredient.btn.btn-secondary(type='button', value=addIngredient)
+            fieldset#directions.field-group
+              legend.label(for='direction-0')= directions
+                sup *
+              - var directionName;
+              each direction, index in result.directions
+                - directionName= 'direction-' + index
+                input.field(id=directionName, type='text', name=directionName, placeholder=ingredientPlaceholder, value=direction, required)
+            input#add-directions.btn.btn-secondary(type='button', value=addDirections)
+            div.field-group
+              div.file
+                - var imgLabel
+                if result.img == placeholder
+                  - imgLabel = upload
+                else
+                  - imgLabel = result.img
+                input.field(type='file', name='recipeImg', accept='image/jpeg, image/png, image/webp', value=imgLabel)
+                
+                label.label.btn.btn-secondary(for='recipeImg')= imgLabel
+              p= imageHelp
+            input#submit.btn.btn-main(type='submit', value=submit)
+  include footer.pug

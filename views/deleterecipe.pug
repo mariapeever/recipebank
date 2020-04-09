@@ -1,0 +1,16 @@
+html
+  include header.pug
+  header.page-title
+    div.outer
+      div.col.col-12
+        h1= header
+  main
+    div.outer
+      div.col.col-12
+        header
+          h3= message
+    if recipe
+      section.item
+        include short.pug
+        include long.pug
+  include footer.pug

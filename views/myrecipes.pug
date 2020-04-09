@@ -1,0 +1,21 @@
+html
+  include header.pug
+  header.page-title
+    div.outer
+      div.col.col-12
+        h1= header
+  main
+    div.outer
+      div.col.col-12
+        header
+          h3= message
+    if recipes.length
+      for recipe in recipes
+        section.item
+          include short.pug
+    else
+      section.no-results
+        div.outer.vm-2
+          div.col.col-12
+            p There are no recipes yet...
+  include footer.pug

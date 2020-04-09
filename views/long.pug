@@ -1,0 +1,45 @@
+div.outer
+  div.col.col-12.col-md-9.push-md-3
+    section#description
+      div.outer
+        div.col.col-12
+          h3= descriptionLabel
+          p= recipe.description
+    section#ingredients
+      div.outer
+        div.col.col-12
+          h3= ingredientsLabel
+          ul.ingredients
+            for ingredient in recipe.ingredients
+              li= ingredient
+    section#directions
+      div.outer
+        div.col.col-12
+          h3= directionsLabel
+          ol.directions
+            for direction in recipe.directions
+              li= direction
+    section#nutrition
+      div.outer
+        div.col.col-12
+          h3= nutritionLabel
+          div.outer
+            ul.list-inline.features
+              li.col-2= caloriesLabel
+                span.plainVal= recipe.calories + caloriesUnit
+                span= Math.round((recipe.calories / caloriesRDA) * 100) + '%'
+              li.col-2= sodiumLabel
+                span.plainVal= recipe.sodium + sodiumUnit
+                span= Math.round((recipe.sodium / sodiumRDA) * 100) + '%'
+              li.col-2= fatLabel
+                span.plainVal= recipe.fat + fatUnit
+                span= Math.round((recipe.fat / fatRDA) * 100) + '%'
+              li.col-2= proteinLabel
+                span.plainVal= recipe.protein + proteinUnit
+                span= Math.round((recipe.protein / proteinRDA) * 100) + '%'
+              li.col-2= carbsLabel
+                span.plainVal= recipe.carbs + carbsUnit
+                span= Math.round((recipe.carbs / carbsRDA) * 100) + '%'
+              li.col-2= fiberLabel
+                span.plainVal= recipe.fiber + fiberUnit
+                span= Math.round((recipe.fiber / fiberRDA) * 100) + '%'

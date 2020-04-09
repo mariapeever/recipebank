@@ -1,0 +1,35 @@
+html
+  include header.pug
+  heade
+    div.outer
+      div.col.col-12.vt-1
+        h1= header
+        p= message
+  main
+    div.outer
+      div.col.col-8
+        form#register(method='POST', action='/registered')
+          div.field-group
+            label.label(for='name')= name
+              sup *
+            input#name.field(type='text', name='name', placeholder=namePlaceholder, required, minlength='5', maxlength='30')
+            p= nameHelp
+          div.field-group
+            label.label(for='first')= first
+              sup *
+            input#first.field(type='text', name='first', placeholder=firstPlaceholder, required)
+          div.field-group
+            label.label(for='last')= last
+              sup *
+            input#last.field(type='text', name='last', placeholder=lastPlaceholder, required)
+          div.field-group
+            label.label(for='email')= email
+              sup *
+            input#email.field(type='email', name='email', placeholder=emailPlaceholder, required)
+          div.field-group
+            label.label(for='password')= password
+              sup *
+            input#password.field(type='password', name='password', placeholder=passwordPlaceholder, required, pattern='(?=.*\\d).{8,}')
+            p= passwordHelp
+          input#submit.btn.btn-main(type='submit', value=submit)
+  include footer.pug

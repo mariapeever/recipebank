@@ -1,0 +1,19 @@
+html
+  include header.pug
+  header
+    div.outer
+      div.col.col-12.vt-1
+        h1= header
+        p= message
+  main
+    div.outer
+      div.col.col-8
+        form#login(method='POST', action='/loggedin')
+          div.field-group
+            label.label(for='name')= name
+            input#name.field(type='text', name='name', placeholder=namePlaceholder, required, minlength='5', maxlength='30')
+          div.field-group
+            label.label(for='password')= password
+            input#password.field(type='password', name='password', placeholder=passwordPlaceholder, minlength='8', maxlength='128', required)
+          input#submit.btn.btn-main(type='submit', value=submit)
+  include footer.pug

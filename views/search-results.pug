@@ -1,0 +1,21 @@
+html
+  include header.pug
+  header.page-title
+    div.outer
+      div.col.col-12
+        h1= header
+  main
+    if searchResults.length
+      div.outer
+        div.col.col-12
+          header
+            h3= message
+      each recipe in searchResults
+        section.item
+          include short.pug
+    else
+      section.no-results
+        div.outer.vm-2
+          div.col.col-12
+            p Oops! There are no recipes matching your search...
+  include footer.pug

@@ -1,0 +1,464 @@
+/**
+ * SCSS Grid
+ * Recipe Bank
+ * Author: mpeev001
+ */
+.outer {
+  margin: 0 auto;
+  position: relative;
+  clear: both;
+  overflow: hidden;
+  padding-left: 1.5rem!important;
+  padding-right: 1.5rem!important;
+  .outer {
+    margin-left: -1.5rem!important;
+    margin-right: -1.5rem!important;
+    padding-left: 0!important;
+    padding-right: 0!important;
+  }
+}
+.col {
+  float: left;
+  padding-left: 1.5rem!important;
+  padding-right: 1.5rem!important;
+}
+.box {
+  padding: 1em 1.5rem!important;
+}
+$xs-max: 47.9375rem;
+$sm-min: 48rem;
+$sm-max: 61.9375rem;
+$md-min: 62rem;
+$md-max: 74.9375rem;
+$lg-min: 75rem;
+$outer-sm: 45;
+$outer-md: 58.5;
+$outer-lg: 72;
+$vr: 2rem;
+@mixin vs($increment, $pos) {
+  $vs: $vr * $increment;
+  @if $pos == 'both' {
+    $vs: $vs / 2;
+  }
+  @if $pos == 'top' or $pos == 'both' {
+    margin-top: $vs!important;
+  }
+  @if $pos == 'bottom' or $pos == 'both' {
+    margin-bottom: $vs!important;
+  }
+}
+.vt {
+  &-1 {
+    @include vs(1,'top');
+  }
+  &-2 {
+    @include vs(2, 'top');
+  }
+  &-3 {
+    @include vs(3, 'top');
+  }
+  &-4 {
+    @include vs(4, 'top');
+  }
+}
+.vb {
+  &-1 {
+    @include vs(1,'bottom');
+  }
+  &-2 {
+    @include vs(2, 'bottom');
+  }
+  &-3 {
+    @include vs(3, 'bottom');
+  }
+  &-4 {
+    @include vs(4, 'bottom');
+  }
+}
+.vm {
+  &-1 {
+    @include vs(1, 'both');
+  }
+  &-2 {
+    @include vs(2, 'both');
+  }
+  &-3 {
+    @include vs(3, 'both');
+  }
+  &-4 {
+    @include vs(4, 'both');
+  }
+}
+.hl {
+  &-1 {
+    margin-left: 0.33333333rem!important;
+  }
+}
+.vt {
+  &-1 {
+    @include vs(1,'top');
+  }
+  &-2 {
+    @include vs(2, 'top');
+  }
+  &-3 {
+    @include vs(3, 'top');
+  }
+  &-4 {
+    @include vs(4, 'top');
+  }
+}
+.vb {
+  &-1 {
+    @include vs(1,'bottom');
+  }
+  &-2 {
+    @include vs(2, 'bottom');
+  }
+  &-3 {
+    @include vs(3, 'bottom');
+  }
+  &-4 {
+    @include vs(4, 'bottom');
+  }
+}
+.vm {
+  &-1 {
+    @include vs(1, 'both');
+  }
+  &-2 {
+    @include vs(2, 'both');
+  }
+  &-3 {
+    @include vs(3, 'both');
+  }
+  &-4 {
+    @include vs(4, 'both');
+  }
+}
+.hl {
+  &-1 {
+    margin-left: 0.33333333rem!important;
+  }
+}
+.hr {
+  &-1 {
+    margin-right: 0.33333333rem!important;
+  }
+}
+@mixin col($cols) {
+  width: (100 / 12) * $cols * 1%!important;
+}
+
+@mixin push($cols) {
+  margin-left: (100 / 12) * $cols * 1%!important;
+}
+@mixin cols() {
+  .col {
+    &-1 {
+      @include col(1);
+    }
+    &-2 {
+      @include col(2);
+    }
+    &-3 {
+      @include col(3);
+    }
+    &-4 {
+      @include col(4);
+    }
+    &-5 {
+      @include col(5);
+    }
+    &-6 {
+      @include col(6);
+    }
+    &-7 {
+      @include col(7);
+    }
+    &-8 {
+      @include col(8);
+    }
+    &-9 {
+      @include col(9);
+    }
+    &-10 {
+      @include col(10);
+    }
+    &-11 {
+      @include col(11);
+    }
+    &-12 {
+      @include col(12);
+    }
+  }
+}
+@mixin cols-md() {
+  .col-md {
+    &-1 {
+      @include col(1);
+    }
+    &-2 {
+      @include col(2);
+    }
+    &-3 {
+      @include col(3);
+    }
+    &-4 {
+      @include col(4);
+    }
+    &-5 {
+      @include col(5);
+    }
+    &-6 {
+      @include col(6);
+    }
+    &-7 {
+      @include col(7);
+    }
+    &-8 {
+      @include col(8);
+    }
+    &-9 {
+      @include col(9);
+    }
+    &-10 {
+      @include col(10);
+    }
+    &-11 {
+      @include col(11);
+    }
+    &-12 {
+      @include col(12);
+    }
+  }
+}
+@mixin cols-lg() {
+  .col-lg {
+    &-1 {
+      @include col(1);
+    }
+    &-2 {
+      @include col(2);
+    }
+    &-3 {
+      @include col(3);
+    }
+    &-4 {
+      @include col(4);
+    }
+    &-5 {
+      @include col(5);
+    }
+    &-6 {
+      @include col(6);
+    }
+    &-7 {
+      @include col(7);
+    }
+    &-8 {
+      @include col(8);
+    }
+    &-9 {
+      @include col(9);
+    }
+    &-10 {
+      @include col(10);
+    }
+    &-11 {
+      @include col(11);
+    }
+    &-12 {
+      @include col(12);
+    }
+  }
+}
+
+@mixin push-cols() {
+  .push {
+    &-1 {
+      @include push(1);
+    }
+    &-2 {
+      @include push(2);
+    }
+    &-3 {
+      @include push(3);
+    }
+    &-4 {
+      @include push(4);
+    }
+    &-5 {
+      @include push(5);
+    }
+    &-6 {
+      @include push(6);
+    }
+    &-7 {
+      @include push(7);
+    }
+    &-8 {
+      @include push(8);
+    }
+    &-9 {      
+      @include push(9);
+    }
+    &-10 {
+      @include push(10);
+    }
+    &-11 {
+      @include push(11);
+    }
+    &-12 {
+      @include push(12);
+    }
+  }
+}
+@mixin push-cols-md() {
+  .push-md {
+    &-1 {
+      @include push(1);
+    }
+    &-2 {
+      @include push(2);
+    }
+    &-3 {
+      @include push(3);
+    }
+    &-4 {
+      @include push(4);
+    }
+    &-5 {
+      @include push(5);
+    }
+    &-6 {
+      @include push(6);
+    }
+    &-7 {
+      @include push(7);
+    }
+    &-8 {
+      @include push(8);
+    }
+    &-9 {
+      @include push(9);
+    }
+    &-10 {
+      @include push(10);
+    }
+    &-11 {
+      @include push(11);
+    }
+    &-12 {
+      @include push(12);
+    }
+  }
+}
+@mixin push-cols-lg() {
+  .push-lg {
+    &-1 {
+      @include push(1);
+    }
+    &-2 {
+      @include push(2);
+    }
+    &-3 {
+      @include push(3);
+    }
+    &-4 {
+      @include push(4);
+    }
+    &-5 {
+      @include push(5);
+    }
+    &-6 {
+      @include push(6);
+    }
+    &-7 {
+      @include push(7);
+    }
+    &-8 {
+      @include push(8);
+    }
+    &-9 {
+      @include push(9);
+    }
+    &-10 {
+      @include push(10);
+    }
+    &-11 {
+      @include push(11);
+    }
+    &-12 {
+      @include push(12);
+    }
+  }
+}
+@include cols();
+@include push-cols();
+
+.outer {
+  .outer {
+    width: calc(100% + 3rem)!important;
+  }
+}
+@media (max-width: $xs-max) {
+  .col {
+    width: 100%!important;
+  }
+}
+@media (min-width: $sm-min) {
+  .outer {
+    width: $outer-sm * 1rem!important;
+  }
+  @include cols();
+  @include push-cols();
+}
+
+@media (min-width: $md-min) {
+  .outer {
+    width: $outer-md * 1rem!important;
+  }
+  @include cols-md();
+  @include push-cols-md();
+}
+
+@media (min-width: $lg-min) {
+  .outer {
+    width: $outer-lg * 1rem!important;
+  }
+  @include cols-lg();
+  @include push-cols-lg();
+}
+.center {
+  text-align: center;
+}
+
+@media (max-width: $sm-max) {
+  .collapse {
+    display: block!important;
+    font-size: 2.5rem;
+    color: hsl(225, 14%, 49%);
+    position: absolute;
+    right: 1.5rem;
+    font-weight: 200;
+    margin-top: -1px;
+    -webkit-font-smoothing: antialiased;
+    &:hover,
+    &:focus {
+      color: darken(hsl(225, 14%, 49%), 30%);
+    }
+  }
+  .nav {
+    display: none;
+  }
+  footer {
+    .nav {
+      display: block;
+    }
+  }
+  .show {
+    display: block;
+  }
+}
+                                
